@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 
 import MonthItem from '../MonthItem'
 
-import { monthsMap } from '../../constants';
+import { monthsMap } from '../../../constants';
 
 const useStyles = makeStyles({
     root: {
