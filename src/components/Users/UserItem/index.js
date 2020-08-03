@@ -7,24 +7,24 @@ import ListItemText from '@material-ui/core/ListItemText';
 const useStyles = makeStyles({
     root: {
         textAlign: 'center'
-    }
+    },
 });
 
-
-const UserItem = ({firstName, lastName}) => {
+const UserItem = ({ firstName, lastName }) => {
     const classes = useStyles();
 
     return (
         <ListItem className={classes.root}>
-            <ListItemText>{firstName} {lastName}</ListItemText>
+            <ListItemText>
+                {firstName} {lastName}
+            </ListItemText>
         </ListItem>
     );
 };
 
-
 UserItem.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string
-}
+};
 
 export default UserItem;

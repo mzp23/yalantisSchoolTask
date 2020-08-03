@@ -6,12 +6,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 const useStyles = makeStyles({
     root: {
-        backgroundColor: props => props.color, 
+        backgroundColor: (props) => props.color,
         width: 100,
         textAlign: 'center',
-        borderRight: '1px solid #fff'
-
-    }
+        borderRight: '1px solid #fff',
+    },
 });
 
 const MonthItem = (props) => {
@@ -19,16 +18,17 @@ const MonthItem = (props) => {
     const { monthName, getCurrentMonth } = props;
 
     return (
-        <ListItem  className={classes.root} onMouseEnter={() => getCurrentMonth(monthName)}>
+        <ListItem
+            className={classes.root}
+            onMouseEnter={() => getCurrentMonth(monthName)}>
             <ListItemText>{monthName}</ListItemText>
         </ListItem>
     );
 };
 
-
 MonthItem.propTypes = {
     monthName: PropTypes.string,
     color: PropTypes.string
-}
+};
 
 export default MonthItem;
