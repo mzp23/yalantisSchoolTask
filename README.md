@@ -1,1 +1,5 @@
-Yalantis React School Task
+# Yalantis React School Task
+
+## how to install:
+  * yarn
+  * yarn start
