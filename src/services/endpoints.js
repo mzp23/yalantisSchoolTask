@@ -1,1 +1,1 @@
-const users = 'https://yalantis-react-school-api.yalantis.com/api/task0/users';
+export const users = 'https://yalantis-react-school-api.yalantis.com/api/task0/users';
