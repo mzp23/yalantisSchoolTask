@@ -16,10 +16,10 @@ const useStyles = makeStyles({
 
 const MonthItem = (props) => {
     const classes = useStyles(props);
-    const { monthName } = props;
+    const { monthName, getCurrentMonth } = props;
 
     return (
-        <ListItem  className={classes.root} >
+        <ListItem  className={classes.root} onMouseEnter={() => getCurrentMonth(monthName)}>
             <ListItemText>{monthName}</ListItemText>
         </ListItem>
     );

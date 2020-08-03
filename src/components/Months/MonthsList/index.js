@@ -16,20 +16,8 @@ const useStyles = makeStyles({
 });
 
 
-const MonthsList = ({users}) => {
+const MonthsList = ({getCurrentMonth, usersInMonthByDob}) => {
     const classes = useStyles();
-
-    const usersInMonthByDob = users.reduce((acc, user) => {
-        const userMonth = new Date(user.dob).getMonth(); 
-        if (acc[monthsMap[userMonth]]) {
-            acc[monthsMap[userMonth]].push(user);
-        } else {
-            acc[monthsMap[userMonth]] = [user];
-        }
-    
-        return acc;
-    }, {})
-
 
     const getMonthColor = (usersCount) => {
         if (usersCount <= 2) {
@@ -44,26 +32,22 @@ const MonthsList = ({users}) => {
     }
 
     const isDataExists = Object.keys(usersInMonthByDob).length > 0;
-   
+
     return (isDataExists && <List className={classes.root}>
                 {monthsMap.map(month => {
                     const color = getMonthColor(usersInMonthByDob[month].length);
 
-                    return <MonthItem key={month} monthName={month} color={color}/>
+                    return <MonthItem key={month} monthName={month} color={color} getCurrentMonth={getCurrentMonth} />
                 })}
             </List>)
 }
 
 MonthsList.propTypes = {
-    users: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string,
-            firstName: PropTypes.string,
-            lastName: PropTypes.string,
-            dob: PropTypes.string,
-      })
-        
-    ),
+  usersInMonthByDob: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string,
+      firstName: PropTypes.string,
+      secondName: PropTypes.string
+  }))),
   };
 
 export default MonthsList;
